@@ -1,0 +1,47 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hello", "Hey there", "Greetings"],
+        "responses": ["Hello! I am Agrina.. How can I assist you today?", "Hi there! How can I help you?"],
+        "context": ""
+      },
+      {
+        "tag": "faq",
+        "patterns": ["What are your shipping options?", "How can I return a product?", "Do you offer refunds?"],
+        "responses": ["Our shipping options include standard and express delivery. You can find more details on our website.", "You can initiate a return by logging into your account and selecting the 'Return Item' option. Please refer to our return policy for more details.", "Yes, we offer refunds within 30 days of purchase. Please check our refund policy for eligibility criteria."],
+        "context": ""
+      },
+      {
+        "tag": "general_gesture",
+        "patterns": ["Thank you", "Great service", "Awesome", "Good job"],
+        "responses": ["You're welcome! We're glad we could assist you.", "Thank you for your kind words!", "We aim to please!"],
+        "context": ""
+      },
+      {
+        "tag": "product_tracking",
+        "patterns": ["Can you track my order?", "Where is my package?", "Track order"],
+        "responses": ["Sure, please provide your order number and I'll check the status for you.", "Of course, I just need your order number to track it down."],
+        "context": ""
+      },
+      {
+        "tag": "feedback",
+        "patterns": ["I'd like to provide feedback", "How can I leave a review?", "Feedback"],
+        "responses": ["We appreciate your feedback! You can leave a review on our website or contact customer support for assistance.", "Thank you for your willingness to provide feedback! Your opinion matters to us."],
+        "context": ""
+      },
+      {
+        "tag": "order_purchasing",
+        "patterns": ["I want to place an order", "How do I buy a product?", "Purchase"],
+        "responses": ["You can browse our products and add items to your cart. When you're ready, proceed to checkout and follow the prompts to complete your purchase.", "To place an order, simply select the desired items, add them to your cart, and proceed to checkout. If you need any assistance, feel free to ask!"],
+        "context": ""
+      },
+      {
+        "tag": "customer_support",
+        "patterns": ["I need help with my order", "Customer support", "Can you assist me?"],
+        "responses": ["Of course! What seems to be the issue with your order? Please provide more details so I can assist you better.", "Absolutely, I'm here to help. Please describe the problem you're experiencing and I'll do my best to assist you."],
+        "context": ""
+      }
+    ]
+  }
+  
