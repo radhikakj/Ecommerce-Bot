@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #81c2d3;
+        }
+
+        #chat-container {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        #chat-box {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #user-input {
+            flex: 1; /* Grow to fill available space */
+            margin-right: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #send-btn {
+            width: 60px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #c115d4;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Flexbox container for input and button */
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                sendMessage();
+            });
+
+            $('#user-input').keypress(function(e) {
+                if (e.which === 13) {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var message = $('#user-input').val().trim();
+                if (message !== '') {
+                    $('#chat-box').append('<div>You: ' + message + '</div>');
+
+                    $.ajax({
+                        url: '/get_response',
+                        method: 'POST',
+                        data: {user_message: message},
+                        success: function(response) {
+                            var botResponse = response.response;
+                            $('#chat-box').append('<div>Bot: ' + botResponse + '</div>');
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+
+                    $('#user-input').val('');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
