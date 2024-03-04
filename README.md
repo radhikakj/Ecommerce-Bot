@@ -18,7 +18,7 @@ pip install tensorflow
 pip install nltk
 
 
-touch new.py
+create new.py
 
 python new.py
 
@@ -30,3 +30,15 @@ python chatbot.py
     - chatbot.py
     - intents.json
     - README.md
+
+- /your_project_folder
+    - virtualenvironment_name/
+    - app.py
+    - templates
+        -index.html
+    - intents.json
+      -classes.pkl
+       -words.pkl
+        -chatbot_model.h5
+    - README.md
+
